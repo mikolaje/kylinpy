@@ -116,6 +116,10 @@ class KylinCluster(object):
             tables_and_columns=self.service.tables_and_columns(),
         )
 
+    def get_legacy_dataset_source(self, dataset_desc, model_desc):
+        from kylinpy.datasource.dataset_source import DatasetSource
+        return DatasetSource(dataset_desc, model_desc)
+
     def __str__(self):
         if self.project:
             dsn = ('{self.scheme}://'
